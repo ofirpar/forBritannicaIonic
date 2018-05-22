@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Welcome to post board
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="container-fluid">
+    <app-note class="col-lg-3 col-md-4 col-sm-6 col-xs-12 note" ></app-note>
+    <app-note *ngFor="let note of noteList"
+      (click)="showNoteDetails(note);"
+      class="col-lg-3 col-md-4 col-sm-6 col-xs-12 note" 
+      [note]='note'>
+    </app-note>
+    </div>
+</ion-content>

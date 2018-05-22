@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div>A note from <a>{{note.authorName}}</a></div>
+  <div class="formBody">
+    {{note?.description}}
+    <div>
+        <!-- <img [src]="note?.imagePath || 'http://via.placeholder.com/350x150'"> -->
+        <img [src]="note?.imagePath || 'https://muldoonscoffee.com/wp-content/uploads/2017/04/placeholder.png'">
+    </div>
+  </div>
+  <div>
+      <span class="formButtons">
+    <button type="button" (click)="bsModalRef?.hide()" class="btn btn-danger">Close</button>
+    </span>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="container-fluid">
+<div>Post a new note</div>
+<div>
+<form #noteForm="ngForm" (ngSubmit)="onClickSubmit(noteForm)" class="formBody">
+  <div class="form-group">
+    <label for="authorName">Author Name</label>
+    <input type="text" 
+    class="form-control" 
+    id="authorName" 
+    name="authorName" 
+    required="true"
+    placeholder="Author Name" 
+    #authorName
+    ngModel/>
+  </div>
+  <div class="form-group">
+    <label for="description">What would you like to say ?</label>
+    <textarea 
+    class="form-control" 
+    id="description" 
+    name="description" 
+    required="true"
+    placeholder="description" 
+    ngModel></textarea>
+  </div>
+  <div class="form-group">
+    <label for="image">Would you like to show something ?</label>
+    <input type="file" accept="image/*" (change)="changeListener($event)">
+  </div>
+  <span class="formButtons">
+   <button type="button" (click)="bsModalRef?.hide()" class="btn btn-danger">Cancel</button>
+    <button type="submit" *ngIf="noteForm?.valid" class="btn btn-success">Post</button>
+  </span>
+  
+</form>
+</div>
+<div *ngIf="noteForm?.invalid">
+    <span class="alert-danger"> 
+      These fields are mandatory, please fill them before submit. 
+    </span>
+    <p *ngFor="let controlKey of getValidationErrors()">
+      {{controlKey}}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<form action="">
+<fieldset>
+  <legend>{{note?.authorName || 'Add new note'}}</legend>
+  <button *ngIf="!note" 
+    (click)="addNote()"
+    class="btn btn-primary">
+    Add New Note
+  </button>
+  <p *ngIf="note">
+    {{note?.description}}
+  </p>
+
+</fieldset>
+</form>
